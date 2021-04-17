@@ -13,7 +13,7 @@ interface MachineEvent {
 }
 
 const acuBuf = (ctx: MachineContext, ev: MachineEvent): MachineContext => {
-    return { ...ctx, buf: ctx.buf + ev.value }
+    return { ...ctx, buf: (ctx.buf + ev.value).slice(0, 10) }
 }
 
 const AC = (): MachineContext => {
@@ -29,7 +29,7 @@ const machine = createMachine('normal', {
     normal: state(
         transition("NUM", "normal", reduce(acuBuf)),
         transition("OP", "accu", reduce((ctx: MachineContext, ev: MachineEvent): MachineContext => {
-            return { ...ctx, buf: '', op: ev.value, ans: parseFloat(ctx.buf) }
+            return { ...ctx, buf: '', op: ev.value, ans: parseFloat(ctx.buf == '' ? '0' : ctx.buf) }
         })),
         transition("AC", "normal", reduce(AC)),
         transition("C", "normal", reduce(C)),

@@ -22,7 +22,7 @@ const KeyButton = (props: {
     return (
         <button
             {...props}
-            className={`w-full h-full bg-white ${style} ${className}`}
+            className={`w-full h-full text-2xl ${style} ${className}`}
             name={keyName}
         >
             {keyName}
@@ -32,7 +32,7 @@ const KeyButton = (props: {
 }
 
 const Calculator: FunctionalComponent = () => {
-    const [current, send] = useMachine(machine, { buf: '', num: 0, ans: 0 });
+    const [current, send] = useMachine(machine, { buf: '', ans: 0, op: '' });
 
 
     const onNum = (e: any) => {
@@ -62,12 +62,16 @@ const Calculator: FunctionalComponent = () => {
 
     console.log(current)
 
+
     return (
-        <div className="container bg-gray-800 w-full md:w-1/2">
-            <div className="w-full h-16 p-2 text-white text-right text-4xl">
-                {current.context.buf != '' ? current.context.buf : '0'}
+        <div className="w-full h-full flex flex-col ">
+            <div className="w-full h-44 md:h-56 lg:h-64 p-2 bg-gray-900 text-white text-right text-7xl md:text-8xl break-words">
+                {current.context.buf != '' ? parseFloat(current.context.buf).toLocaleString('en-US', {
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 5
+                }) : '0'}
             </div>
-            <div className="keypad grid grid-cols-4 gap-1">
+            <div className="keypad flex-grow grid grid-cols-4" style={{ gridGap: '1px' }}>
                 <KeyButton keyName="AC" onClick={onAC} />
                 <KeyButton keyName="C" onClick={onC} />
                 <KeyButton keyName="/" preset="primary" onClick={onOp} />
