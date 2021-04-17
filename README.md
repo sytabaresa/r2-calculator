@@ -2,7 +2,6 @@
 
 simple calculator in React (Preact) with web, responsive, PWA and desktop version: see demo [here](https://sytabaresa.github.io/r2-calculator/)
 
-
 ## techs used:
 - [Tailwindcss](https://tailwindcss.com/)
 - [Preact](https://preactjs.com/)
@@ -11,11 +10,18 @@ simple calculator in React (Preact) with web, responsive, PWA and desktop versio
 - [GitHub Pages](https://pages.github.com/)
 
 
+## PWA
+
+you can install as a PWA application in a desktop browser (firefox, chrome, etc) or in a Android/iOS browser:
+
+![pwa-desktop](./images/pwa-desktop.png)
+![pwa-mobile](./images/pwa-mobile.png)
+
 ## Destop application:
 
 you can compile go code (Windows, Linux, OSX) to make a desktop version of the app:
 
-![destop-image](./desktop.png)
+![destop-image](./images/desktop.png)
 
 ## CLI Commands
 *   `npm install`: Installs dependencies
