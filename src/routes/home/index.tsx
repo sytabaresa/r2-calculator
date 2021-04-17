@@ -11,7 +11,7 @@ const Home: FunctionalComponent = () => {
             <div className="w-full h-screen lg:w-2/3 lg:p-4 lg:max-w-2xl">
                 <Calculator />
             </div>
-            <div className={` lg:block p-4 bg-white fixed lg:static z-10 ${popup ? '' : 'hidden'}`}>
+            <div className={` lg:block p-4 bg-white fixed lg:static z-10 transition duration-1000 ${popup ? 'visible opacity-100' : 'invisible opacity-0'}`}>
                 <button onClick={() => setpopup(false)} className="absolute top-0 right-0 m-2 text-lg lg:hidden">x</button>
                 <h1 className="text-4xl mb-4">Calculadora:</h1>
                 <p className="">Calculadora con las funciones básicas como suma, resta, multiplicación y división.

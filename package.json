@@ -8,6 +8,7 @@
     "scripts": {
         "build": "preact build",
         "build:desktop": "npm run build && go build -o r2-calculator",
+        "build:desktop-windows": "npm run build &&  go build -ldflags=\"H windowsgui\" -o webview-example.exe",
         "serve:desktop": "./r2-calculator",
         "serve": "sirv build --port 8080 --cors --single",
         "dev": "preact watch",
