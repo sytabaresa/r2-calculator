@@ -522,6 +522,10 @@ button {
   color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 .visible {
   visibility: visible;
 }
@@ -657,4 +661,4 @@ button {
   }
 }
 
-/*# sourceMappingURL=ssr-bundle.7c33e.css.map*/
+/*# sourceMappingURL=ssr-bundle.172b5.css.map*/
