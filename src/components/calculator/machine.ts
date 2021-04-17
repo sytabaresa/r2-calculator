@@ -37,10 +37,10 @@ const machine = createMachine('normal', {
     accu: state(
         transition("NUM", "accu", reduce(acuBuf)),
         transition("OP", "accu", reduce((ctx: MachineContext, ev: MachineEvent): MachineContext => {
-            return { ...ctx, buf: '', op: ev.value, ans: eval(ctx.ans + ctx.op + parseFloat(ctx.buf)) }
+            return { ...ctx, buf: '', op: ev.value, ans: eval(ctx.ans + ctx.op + parseFloat(ctx.buf == '' ? '0' : ctx.buf)) }
         })),
         transition("EVAL", "result", reduce((ctx: MachineContext, ev: MachineEvent): MachineContext => {
-            const v = eval(ctx.ans + ctx.op + parseFloat(ctx.buf))
+            const v = eval(ctx.ans + ctx.op + parseFloat(ctx.buf == '' ? '0' : ctx.buf))
             return { ...ctx, buf: v, ans: v, op: '' }
         })),
         transition("AC", "normal", reduce(AC)),

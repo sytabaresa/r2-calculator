@@ -2,14 +2,17 @@ import { FunctionalComponent, h } from 'preact';
 import { useMachine } from 'preact-robot';
 import machine from './machine';
 
-import { HTMLAttributes } from "react";
+import { HTMLProps } from "react";
 
 const KeyButton = (props: {
-    keyName: string,
-    preset?: string
-} & HTMLAttributes<HTMLButtonElement>) => {
+    keyName: string;
+    preset?: string;
+    onClick?: (e: any) => void;
+    className?: string;
+    sym?: string
+}) => {
 
-    const { className, keyName, preset } = props
+    const { className = '', keyName, preset = 'default' } = props
 
     const styles: { [key: string]: string } = {
         default: "bg-white text-gray-800",
@@ -22,7 +25,7 @@ const KeyButton = (props: {
     return (
         <button
             {...props}
-            className={`w-full h-full text-2xl ${style} ${className}`}
+            className={`w-full h-full text-2xl lg:text-3xl ${style} ${className}`}
             name={keyName}
         >
             {keyName}
@@ -41,8 +44,9 @@ const Calculator: FunctionalComponent = () => {
     }
 
     const onOp = (e: any) => {
-        console.log("op pressed:", e.target.name)
-        send({ type: "OP", value: e.target.name })
+        const op = e.target.name.replace('x','*')
+        console.log("op pressed:", op)
+        send({ type: "OP", value: op })
     }
 
     const onEq = (e: any) => {
@@ -60,11 +64,10 @@ const Calculator: FunctionalComponent = () => {
         send("C")
     }
 
-    console.log(current)
-
+    // console.log(current)
 
     return (
-        <div className="w-full h-full flex flex-col ">
+        <div className="w-full h-full flex flex-col lg:border-2 border-gray-900">
             <div className="w-full h-44 md:h-56 lg:h-64 p-2 bg-gray-900 text-white text-right text-7xl md:text-8xl break-words">
                 {current.context.buf != '' ? parseFloat(current.context.buf).toLocaleString('en-US', {
                     minimumFractionDigits: 0,
@@ -75,7 +78,7 @@ const Calculator: FunctionalComponent = () => {
                 <KeyButton keyName="AC" onClick={onAC} />
                 <KeyButton keyName="C" onClick={onC} />
                 <KeyButton keyName="/" preset="primary" onClick={onOp} />
-                <KeyButton keyName="x" preset="primary" onClick={onOp} />
+                <KeyButton keyName="x" sym="*" preset="primary" onClick={onOp} />
                 <KeyButton keyName="7" onClick={onNum} />
                 <KeyButton keyName="8" onClick={onNum} />
                 <KeyButton keyName="9" onClick={onNum} />
