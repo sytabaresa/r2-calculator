@@ -12,10 +12,9 @@ simple calculator in React (Preact) with web, responsive, PWA and desktop versio
 
 ## PWA
 
-you can install as a PWA application in a desktop browser (firefox, chrome, etc) or in a Android/iOS browser:
+you can install as a PWA application in a desktop browser (firefox, chrome, etc) or in a Android/iOS browser, clicking in the corresponding popup and installing the program:
 
-![pwa-desktop](./images/pwa-desktop.png)
-![pwa-mobile](./images/pwa-mobile.png)
+![pwa](./images/pwa.png)
 
 ## Destop application:
 
