@@ -403,10 +403,6 @@ button {
   display: grid;
 }
 
-.hidden {
-  display: none;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -457,6 +453,14 @@ button {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
 }
 
 .p-2 {
@@ -518,6 +522,14 @@ button {
   color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
 
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 .break-words {
   overflow-wrap: break-word;
 }
@@ -548,6 +560,10 @@ button {
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
 }
 
 @-webkit-keyframes spin {
@@ -641,4 +657,4 @@ button {
   }
 }
 
-/*# sourceMappingURL=ssr-bundle.5402c.css.map*/
+/*# sourceMappingURL=ssr-bundle.7c33e.css.map*/
