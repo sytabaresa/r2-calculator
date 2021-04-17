@@ -6,7 +6,7 @@ simple calculator in React (Preact) with web, responsive, PWA and desktop versio
 ## techs used:
 - [Tailwindcss](https://tailwindcss.com/)
 - [Preact](https://preactjs.com/)
-- [Robot](https://thisrobot.life/)s
+- [Robot](https://thisrobot.life/)
 - [WebView](https://github.com/WebView/webview)
 - [GitHub Pages](https://pages.github.com/)
 
