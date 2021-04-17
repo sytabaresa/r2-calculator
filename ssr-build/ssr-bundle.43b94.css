@@ -610,6 +610,11 @@ button {
     height: 16rem;
   }
 
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .lg\:max-w-2xl {
     max-width: 42rem;
   }
@@ -627,4 +632,4 @@ button {
   }
 }
 
-/*# sourceMappingURL=ssr-bundle.27b89.css.map*/
+/*# sourceMappingURL=ssr-bundle.43b94.css.map*/
