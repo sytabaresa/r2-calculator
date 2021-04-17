@@ -627,10 +627,6 @@ button {
     border-width: 2px;
   }
 
-  .lg\:block {
-    display: block;
-  }
-
   .lg\:hidden {
     display: none;
   }
@@ -648,6 +644,10 @@ button {
     max-width: 42rem;
   }
 
+  .lg\:opacity-100 {
+    opacity: 1;
+  }
+
   .lg\:p-4 {
     padding: 1rem;
   }
@@ -656,9 +656,13 @@ button {
     position: static;
   }
 
+  .lg\:visible {
+    visibility: visible;
+  }
+
   .lg\:w-2\/3 {
     width: 66.666667%;
   }
 }
 
-/*# sourceMappingURL=ssr-bundle.172b5.css.map*/
+/*# sourceMappingURL=ssr-bundle.3187c.css.map*/
