@@ -324,6 +324,11 @@ h4 {
  * opt-out.
  */
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 /**
  * Reset form element properties that are easy to forget to
  * style explicitly so you don't inadvertently introduce
@@ -622,4 +627,4 @@ button {
   }
 }
 
-/*# sourceMappingURL=ssr-bundle.0f0d5.css.map*/
+/*# sourceMappingURL=ssr-bundle.27b89.css.map*/
