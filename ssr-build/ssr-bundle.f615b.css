@@ -550,10 +550,6 @@ button {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
 .row-span-2 {
   grid-row: span 2 / span 2;
 }
@@ -665,4 +661,4 @@ button {
   }
 }
 
-/*# sourceMappingURL=ssr-bundle.3187c.css.map*/
+/*# sourceMappingURL=ssr-bundle.f615b.css.map*/
