@@ -44,9 +44,15 @@ const Calculator: FunctionalComponent = () => {
     }
 
     const onOp = (e: any) => {
-        const op = e.target.name.replace('x','*')
+        const op = e.target.name.replace('x', '*') //.replace('^','**')
         console.log("op pressed:", op)
         send({ type: "OP", value: op })
+    }
+
+    const onUnOp = (e: any) => {
+        const op = e.target.name.replace('^2', '**2')
+        console.log("unary op pressed:", op)
+        send({ type: "UnOP", value: op })
     }
 
     const onEq = (e: any) => {
@@ -64,15 +70,17 @@ const Calculator: FunctionalComponent = () => {
         send("C")
     }
 
-    // console.log(current)
+    console.log(current)
 
     return (
         <div className="w-full h-full flex flex-col lg:border-2 border-gray-900">
             <div className="w-full h-44 md:h-56 lg:h-64 p-2 bg-gray-900 text-white text-right text-7xl md:text-8xl break-words">
-                {current.context.buf != '' ? parseFloat(current.context.buf).toLocaleString('en-US', {
-                    minimumFractionDigits: 0,
-                    maximumFractionDigits: 5
-                }) : '0'}
+                {current.context.buf != '' &&
+                    current.context.buf != '.' ?
+                    parseFloat(current.context.buf).toLocaleString('en-US', {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 5
+                    }) : '0'}
             </div>
             <div className="keypad flex-grow grid grid-cols-4" style={{ gridGap: '1px' }}>
                 <KeyButton keyName="AC" onClick={onAC} />
@@ -91,8 +99,9 @@ const Calculator: FunctionalComponent = () => {
                 <KeyButton keyName="2" onClick={onNum} />
                 <KeyButton keyName="3" onClick={onNum} />
                 <KeyButton keyName="=" className="row-span-2" preset="primary" onClick={onEq} />
-                <KeyButton keyName="0" className="col-span-2" onClick={onNum} />
+                <KeyButton keyName="0" className="" onClick={onNum} />
                 <KeyButton keyName="." onClick={onNum} />
+                <KeyButton keyName="^2" className="" preset="primary" onClick={onUnOp} />
 
             </div>
         </div>
