@@ -70,7 +70,7 @@ const Calculator: FunctionalComponent = () => {
         send("C")
     }
 
-    console.log(current)
+    // console.log(current)
 
     return (
         <div className="w-full h-full flex flex-col lg:border-2 border-gray-900">
