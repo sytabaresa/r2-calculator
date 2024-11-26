@@ -1,5 +1,7 @@
 # r2-calculator
 
+*see the challenge [here](./challenge.md)*
+
 simple calculator in React (Preact) with web, responsive, PWA and desktop version: see demo [here](https://sytabaresa.github.io/r2-calculator/)
 
 ## techs used:
