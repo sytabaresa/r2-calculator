@@ -17,7 +17,7 @@ Feel free to reach out if you have any questions.
 
 
 
-During the technical interview
+## During the technical interview
 
 Please be ready to talk through your approach as well as extend your app while we pair program during the technical interview. 
 
