@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from 'preact';
-import { useState } from "react"
+import { useState } from "preact/hooks"
 import Calculator from '../../components/calculator';
 
 const Home: FunctionalComponent = () => {
@@ -15,7 +15,7 @@ const Home: FunctionalComponent = () => {
                 <button onClick={() => setpopup(false)} className="absolute top-0 right-0 m-2 text-lg lg:hidden">x</button>
                 <h1 className="text-4xl mb-4">Calculadora Básica:</h1>
                 <p className="">Calculadora con las funciones básicas como suma, resta, multiplicación y división.
-                puede ver el codigo fuente <a className="underline" href="https://github.com/sytabaresa/r2-calculator">aquí</a>.</p>
+                    puede ver el codigo fuente <a className="underline" href="https://github.com/sytabaresa/r2-calculator">aquí</a>.</p>
                 <p className="mt-2">por <b>Sebastian Tabares</b></p>
             </div>
             <button onClick={() => setpopup(true)} className="p-2 m-2 absolute top-o left-0 bg-principal rounded-full lg:hidden"> INFO</button>

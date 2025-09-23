@@ -2,8 +2,6 @@ import { FunctionalComponent, h } from 'preact';
 import { useMachine } from 'preact-robot';
 import machine from './machine';
 
-import { HTMLProps } from "react";
-
 const KeyButton = (props: {
     keyName: string;
     preset?: string;
