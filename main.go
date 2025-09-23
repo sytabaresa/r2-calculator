@@ -10,7 +10,7 @@ import (
 	"github.com/webview/webview"
 )
 
-//go:embed build/index.html build/*.css build/bundle.*.js build/route-home.*.js
+//go:embed dist/index.html dist/* dist/assets/*
 var embededFiles embed.FS
 
 func main() {
@@ -34,7 +34,7 @@ func main() {
 }
 
 func getFileSystem() http.FileSystem {
-	fsys, err := fs.Sub(embededFiles, "build")
+	fsys, err := fs.Sub(embededFiles, "dist")
 	if err != nil {
 		panic(err)
 	}

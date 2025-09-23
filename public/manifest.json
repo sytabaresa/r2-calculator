@@ -1,0 +1,21 @@
+{
+	"name": "r2-calculator",
+	"short_name": "r2-calculator",
+	"start_url": "/r2-calculator/",
+	"display": "standalone",
+	"orientation": "portrait",
+	"theme_color": "#FB8827",
+	"background_color": "#FFFFFF",
+	"icons": [
+		{
+			"src": "/r2-calculator/assets/icons/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/r2-calculator/assets/icons/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+} 

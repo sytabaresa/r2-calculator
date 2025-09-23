@@ -1,5 +1,5 @@
 node_modules
-/build
+/dist
 /*.log
 size-plugin.json
 r2-calculator
