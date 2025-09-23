@@ -83,8 +83,8 @@ const Calculator: FunctionalComponent = () => {
             <div className="keypad flex-grow grid grid-cols-4" style={{ gridGap: '1px' }}>
                 <KeyButton keyName="AC" onClick={onAC} />
                 <KeyButton keyName="C" onClick={onC} />
-                <KeyButton keyName="/" preset="primary" onClick={onOp} />
-                <KeyButton keyName="x" sym="*" preset="primary" onClick={onOp} />
+                <KeyButton keyName="÷" sym="/" preset="primary" onClick={onOp} />
+                <KeyButton keyName="×" sym="*" preset="primary" onClick={onOp} />
                 <KeyButton keyName="7" onClick={onNum} />
                 <KeyButton keyName="8" onClick={onNum} />
                 <KeyButton keyName="9" onClick={onNum} />
@@ -92,14 +92,14 @@ const Calculator: FunctionalComponent = () => {
                 <KeyButton keyName="4" onClick={onNum} />
                 <KeyButton keyName="5" onClick={onNum} />
                 <KeyButton keyName="6" onClick={onNum} />
-                <KeyButton keyName="-" preset="primary" onClick={onOp} />
+                <KeyButton keyName="−" sym="-" preset="primary" onClick={onOp} />
                 <KeyButton keyName="1" onClick={onNum} />
                 <KeyButton keyName="2" onClick={onNum} />
                 <KeyButton keyName="3" onClick={onNum} />
                 <KeyButton keyName="=" className="row-span-2" preset="primary" onClick={onEq} />
                 <KeyButton keyName="0" className="" onClick={onNum} />
                 <KeyButton keyName="." onClick={onNum} />
-                <KeyButton keyName="^2" className="" preset="primary" onClick={onUnOp} />
+                <KeyButton keyName="x²" sym="^2" className="" preset="primary" onClick={onUnOp} />
 
             </div>
         </div>

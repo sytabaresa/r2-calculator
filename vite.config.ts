@@ -16,6 +16,6 @@ export default defineConfig(async ({ mode }) => {
 				],
 			}),
 		],
-		base: process.env.NODE_ENV === 'gh-pages' ? '/r2-calculator/' : '/',
+		base: process.env.NODE_ENV === 'production' ? '/r2-calculator/' : '/',
 	};
 }); 

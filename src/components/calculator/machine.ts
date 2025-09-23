@@ -58,7 +58,7 @@ const evalResult: Reducer = (ctx) => {
   return { ...ctx, buf: `${value}`, ans: value, op: '' }
 }
 
-const evalAcuResult: Reducer = (ctx, ev) => {
+const evalAccuResult: Reducer = (ctx, ev) => {
   return { ...ctx, buf: '', op: ev.value, ans: evalOpFn(ev.value, ctx.ans, parseNumber(ctx.buf)) }
 }
 const evalOpFn = (op: string, a: number, b: number) => {
@@ -78,19 +78,19 @@ const cleanTransitions = (current: string) => [
 const machine = createMachine<any, MachineContext>('normal', {
   normal: state(
     transition("NUM", "normal", reduce(addToBuffer)),
-    transition("OP", "accu", guard(opValid), reduce(saveAns)),
+    transition("OP", "accumulator", guard(opValid), reduce(saveAns)),
     transition("UnOP", "result", guard(unopValid), reduce(unopFn)),
     ...cleanTransitions("normal")
   ),
-  accu: state(
-    transition("NUM", "accu", reduce(addToBuffer)),
-    transition("OP", "accu", guard(opValid), reduce(evalAcuResult)),
+  accumulator: state(
+    transition("NUM", "accumulator", reduce(addToBuffer)),
+    transition("OP", "accumulator", guard(opValid), reduce(evalAccuResult)),
     transition("EVAL", "result", reduce(evalResult)),
-    ...cleanTransitions("accu")
+    ...cleanTransitions("accumulator")
   ),
   result: state(
     transition("NUM", "normal", reduce(addToBuffer)),
-    transition("OP", "accu", guard(opValid), reduce(saveAns)),
+    transition("OP", "accumulator", guard(opValid), reduce(saveAns)),
     transition("UnOP", "result", guard(unopValid), reduce(unopFn)),
     ...cleanTransitions("result")
   )
