@@ -8,6 +8,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
+        "build:gh-pages": "vite build --base=/r2-calculator/",
         "preview": "vite preview --port 8080",
         "build:desktop": "npm run build && go build -o r2-calculator",
         "build:desktop-windows": "npm run build &&  go build -ldflags=\"H windowsgui\" -o webview-example.exe",
