@@ -22,30 +22,30 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  install:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
   # Build job
   build:
     runs-on: ubuntu-latest
     steps:
+    
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          run_install: false
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm ci
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       - run: npm run build --if-present
     # - run: npm test
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: dist
 
   # Deployment job
   deploy:
