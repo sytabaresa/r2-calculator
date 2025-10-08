@@ -3,19 +3,19 @@ import { useMachine } from 'preact-robot';
 import machine from './machine';
 
 const KeyButton = (props: {
-    keyName: string;
+    displayName: string;
     preset?: string;
     onClick?: (e: any) => void;
     className?: string;
-    sym?: string
+    keyName?: string
 }) => {
 
-    const { className = '', keyName, preset = 'default' } = props
+    const { className = '', displayName, preset = 'default', keyName } = props
 
     const styles: { [key: string]: string } = {
-        default: "bg-white text-gray-800",
-        primary: "bg-principal text-white",
-        back: "bg-gray-800 text-white",
+        default: "bg-white text-gray-800 active:bg-white/80",
+        primary: "bg-principal text-white active:bg-principal/80",
+        back: "bg-gray-800 text-white active:bg-gra-500/80",
     }
 
     const style = styles[preset || 'default']
@@ -24,9 +24,9 @@ const KeyButton = (props: {
         <button
             {...props}
             className={`w-full h-full text-2xl lg:text-3xl ${style} ${className}`}
-            name={keyName}
+            name={keyName ?? displayName}
         >
-            {keyName}
+            {displayName}
         </button>
     )
 
@@ -42,14 +42,14 @@ const Calculator: FunctionalComponent = () => {
     }
 
     const onOp = (e: any) => {
-        const op = e.target.name.replace('x', '*') //.replace('^','**')
-        console.log("op pressed:", op)
+        const op = e.target.name
+        console.log("OP pressed:", op)
         send({ type: "OP", value: op })
     }
 
     const onUnOp = (e: any) => {
-        const op = e.target.name.replace('^2', '**2')
-        console.log("unary op pressed:", op)
+        const op = e.target.name
+        console.log("UnOP pressed:", op)
         send({ type: "UnOP", value: op })
     }
 
@@ -80,26 +80,26 @@ const Calculator: FunctionalComponent = () => {
                         maximumFractionDigits: 5
                     }) : '0'}
             </div>
-            <div className="keypad flex-grow grid grid-cols-4" style={{ gridGap: '1px' }}>
-                <KeyButton keyName="AC" onClick={onAC} />
-                <KeyButton keyName="C" onClick={onC} />
-                <KeyButton keyName="÷" sym="/" preset="primary" onClick={onOp} />
-                <KeyButton keyName="×" sym="*" preset="primary" onClick={onOp} />
-                <KeyButton keyName="7" onClick={onNum} />
-                <KeyButton keyName="8" onClick={onNum} />
-                <KeyButton keyName="9" onClick={onNum} />
-                <KeyButton keyName="+" preset="primary" onClick={onOp} />
-                <KeyButton keyName="4" onClick={onNum} />
-                <KeyButton keyName="5" onClick={onNum} />
-                <KeyButton keyName="6" onClick={onNum} />
-                <KeyButton keyName="−" sym="-" preset="primary" onClick={onOp} />
-                <KeyButton keyName="1" onClick={onNum} />
-                <KeyButton keyName="2" onClick={onNum} />
-                <KeyButton keyName="3" onClick={onNum} />
-                <KeyButton keyName="=" className="row-span-2" preset="primary" onClick={onEq} />
-                <KeyButton keyName="0" className="" onClick={onNum} />
-                <KeyButton keyName="." onClick={onNum} />
-                <KeyButton keyName="x²" sym="^2" className="" preset="primary" onClick={onUnOp} />
+            <div className="keypad flex-grow grid grid-cols-4 bg-black" style={{ gridGap: '1px' }}>
+                <KeyButton displayName="AC" onClick={onAC} />
+                <KeyButton displayName="C" onClick={onC} />
+                <KeyButton displayName="÷" keyName="/" preset="primary" onClick={onOp} />
+                <KeyButton displayName="×" keyName="*" preset="primary" onClick={onOp} />
+                <KeyButton displayName="7" onClick={onNum} />
+                <KeyButton displayName="8" onClick={onNum} />
+                <KeyButton displayName="9" onClick={onNum} />
+                <KeyButton displayName="+" preset="primary" onClick={onOp} />
+                <KeyButton displayName="4" onClick={onNum} />
+                <KeyButton displayName="5" onClick={onNum} />
+                <KeyButton displayName="6" onClick={onNum} />
+                <KeyButton displayName="−" keyName="-" preset="primary" onClick={onOp} />
+                <KeyButton displayName="1" onClick={onNum} />
+                <KeyButton displayName="2" onClick={onNum} />
+                <KeyButton displayName="3" onClick={onNum} />
+                <KeyButton displayName="=" className="row-span-2" preset="primary" onClick={onEq} />
+                <KeyButton displayName="0" className="" onClick={onNum} />
+                <KeyButton displayName="." onClick={onNum} />
+                <KeyButton displayName="x²" keyName="^2" className="" preset="primary" onClick={onUnOp} />
 
             </div>
         </div>

@@ -11,6 +11,7 @@ interface MachineEvent {
   value: string;
 }
 
+type Event = 'OP' | 'UnOP' | 'NUM' | 'RESULT'
 type Guard = (ctx: MachineContext, ev: MachineEvent) => boolean
 type Reducer = (ctx: MachineContext, ev: MachineEvent) => MachineContext
 
@@ -23,7 +24,7 @@ const validOps: { [key: string]: (a: number, b: number) => number } = {
 
 
 const validUnOps: { [key: string]: (a: number) => number } = {
-  '**2': (a) => a ** 2
+  '^2': (a) => a ** 2
 }
 
 const opValid: Guard = (ctx, ev) =>
@@ -75,7 +76,7 @@ const cleanTransitions = (current: string) => [
 ]
 
 // FSM
-const machine = createMachine<any, MachineContext>('normal', {
+const machine = createMachine<any, MachineContext, Event>('normal', {
   normal: state(
     transition("NUM", "normal", reduce(addToBuffer)),
     transition("OP", "accumulator", guard(opValid), reduce(saveAns)),
